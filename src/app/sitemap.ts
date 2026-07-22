@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { brand } from "@/config/brand";
 
+export const dynamic = "force-static";
+
 const routes = [
   "",
   "/coleccion/gala-001",
