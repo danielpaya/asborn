@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+:root {
+  --asbor-black: #0b0b0b;
+  --asbor-black-soft: #111111;
+  --asbor-charcoal: #1a1a1a;
+  --asbor-gold: #b58a4a;
+  --asbor-gold-muted: #967341;
+  --asbor-silver: #a7a7a7;
+  --asbor-ivory: #f2efe8;
+  --asbor-white: #ffffff;
+  --asbor-border: rgba(255, 255, 255, 0.14);
+  --asbor-text-muted: rgba(255, 255, 255, 0.66);
+}
+
+@theme inline {
+  --color-asbor-black: var(--asbor-black);
+  --color-asbor-black-soft: var(--asbor-black-soft);
+  --color-asbor-charcoal: var(--asbor-charcoal);
+  --color-asbor-gold: var(--asbor-gold);
+  --color-asbor-gold-muted: var(--asbor-gold-muted);
+  --color-asbor-silver: var(--asbor-silver);
+  --color-asbor-ivory: var(--asbor-ivory);
+  --color-asbor-white: var(--asbor-white);
+  --color-asbor-border: var(--asbor-border);
+  --color-asbor-text-muted: var(--asbor-text-muted);
+
+  --font-display: var(--font-cormorant);
+  --font-body: var(--font-inter);
+
+  --animate-fade-up: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+* {
+  border-color: var(--asbor-border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background: var(--asbor-black);
+  color: var(--asbor-ivory);
+  font-family: var(--font-body), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--asbor-gold-muted);
+  color: var(--asbor-black);
+}
+
+.font-display {
+  font-family: var(--font-display), serif;
+}
+
+.label-caps {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--asbor-gold);
+  color: var(--asbor-black);
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid var(--asbor-gold);
+  outline-offset: 3px;
+}
+
+@media (min-width: 1024px) {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+}
